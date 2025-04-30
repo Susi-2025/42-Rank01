@@ -6,14 +6,14 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:22:38 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/04/29 15:20:51 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/04/30 14:17:57 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*get_next_line(int fd)
 {
 	char * buffer;
-	//
+	//temp
 
 	read(ft, buffer, count);
 }
