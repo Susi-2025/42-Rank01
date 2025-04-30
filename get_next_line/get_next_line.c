@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 14:22:38 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/04/30 15:39:50 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/04/30 16:31:34 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*get_next_line(int fd)
 	// or open the files again
 	// 2. use struct to store the value of character and move the struct
 	//		every read -> store in the temp node -> add temp node at the last position of the temp list
-	//		count the size of the list to know the calculate the size of string output.
+	//		count the size of the list to calculate the size of string output.
 	//		read out the value from list to the string.
 	// the link list usually assigned the memory randomly -> need to free the memory carefully to prevent memory leaks
 }
