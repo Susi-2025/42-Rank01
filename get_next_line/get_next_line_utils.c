@@ -9,6 +9,7 @@
 /*   Updated: 2025/04/30 16:34:45 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "get_next_line.h"
 
 t_list	*ft_lstnew(void *content)
 {
@@ -36,21 +37,21 @@ void	*ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*temp;
 
-	if (!lst && !new)
+	if (!lst || !new)
 		return;
 	if (*lst == NULL)
 	{
 		*lst = new;
 		return;
 	}
-	temp = ft_lstlast(lst); // can it work?
+	temp = ft_lstlast(*lst); // can it work?
 	temp -> next = new;
-	new -> next = NULL;
+	//new -> next = NULL;
 	// how about NULL at the end of the list, do we need to free it?
 	return;
 }
 
-int	*ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
@@ -63,4 +64,9 @@ int	*ft_lstsize(t_list *lst)
 		i++;
 	}
 	return (i);
+}
+
+void	ft_lstfree(t_list **lst)
+{
+
 }

@@ -13,10 +13,11 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-type struct s_list
-{
+# include <stddef.h>
+
+typedef struct s_list {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+} t_list;
 #endif
 
