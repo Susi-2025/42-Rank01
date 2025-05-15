@@ -5,75 +5,76 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/15 17:22:39 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/15 18:25:09 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/04/30 14:38:36 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/05/15 15:08:52 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
 
 int	ft_strlen(char *s)
 {
-	int	i;
-	
+	int	i;	
+
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	char	*p;
-	char	ch;
 
-	ch = (char) c;
-	while(*s)
+	p = (char *)s;
+	while (*p)
 	{
-		if (*s == ch)
-			return (s);
-		s++;
+		if (*p == (char) c)
+			return (p);
+		p++;
 	}
+	if ((char) c == '\0')
+		return (p);
 	return (NULL);
-}
-
-char	*ft_calloc(size_t no_elements, size_t element_size)
-{
-	char	*out;
-	int		i;
-
-	i = 0;
-	out = (char *)malloc((no_elements  * element_size + 1) * sizeof(char));
-	if (!out)
-		return (NULL);
-	while (i < no_elements * element_size)
-	{
-		out[i] = 0;
-		i++;
-	}
-	return (out);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
 {
+	char	*out;
 	int		i;
 	int		j;
-	char	*out;
 
-	if (!s1 || !s2)
-		return (NULL);
-	out = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
 	i = 0;
-	while (s1[i])
+	out = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!out || !s1 || !s2)
+		return (NULL);
+	while (i < ft_strlen(s1))
 	{
 		out[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (s2[i])
+	while (j < ft_strlen(s2))
 	{
 		out[i + j] = s2[j];
 		j++;
 	}
 	out[i + j] = '\0';
+	return (out);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	char	*out;
+	size_t	i;
+
+	out = malloc(nmemb * size);
+	if (!out)
+		return (NULL);
+	i = 0;
+	while (i < (nmemb * size))
+	{
+		out[i] = '\0';
+		i++;
+	}
 	return (out);
 }
