@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:22:39 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/15 18:25:09 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/20 12:15:08 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "get_next_line.h"
@@ -14,43 +14,29 @@
 int	ft_strlen(char *s)
 {
 	int	i;
-	
+
 	i = 0;
-	while (str[i])
+	while (s[i])
 		i++;
 	return (i);
 }
 
 char	*ft_strchr(char *s, int c)
 {
-	char	*p;
-	char	ch;
-
-	ch = (char) c;
-	while(*s)
-	{
-		if (*s == ch)
-			return (s);
-		s++;
-	}
-	return (NULL);
-}
-
-char	*ft_calloc(size_t no_elements, size_t element_size)
-{
-	char	*out;
 	int		i;
 
 	i = 0;
-	out = (char *)malloc((no_elements  * element_size + 1) * sizeof(char));
-	if (!out)
+	if (!s)
 		return (NULL);
-	while (i < no_elements * element_size)
+	if (c == '\0')
+		return ((char *)&s[ft_strlen(s)]);
+	while (s[i])
 	{
-		out[i] = 0;
+		if (s[i] == (char)c)
+			return ((char *)&s[i]);
 		i++;
 	}
-	return (out);
+	return (NULL);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -59,21 +45,24 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		j;
 	char	*out;
 
+	if (!s1)
+	{
+		s1 = (char *)malloc(1 * sizeof(char));
+		s1[0] = '\0';
+	}
 	if (!s1 || !s2)
 		return (NULL);
-	out = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
-	i = 0;
-	while (s1[i])
-	{
-		out[i] = s1[i];
-		i++;
-	}
+	out = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (!out)
+		return (NULL);
+	i = -1;
+	if (s1)
+		while (s1[++i])
+			out[i] = s1[i];
 	j = 0;
-	while (s2[i])
-	{
-		out[i + j] = s2[j];
-		j++;
-	}
-	out[i + j] = '\0';
+	while (s2[j])
+		out[i++] = s2[j++];
+	out[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
 	return (out);
 }
