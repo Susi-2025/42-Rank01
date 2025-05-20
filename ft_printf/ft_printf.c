@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:16:12 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/19 19:26:16 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/20 19:35:21 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdarg.h>
@@ -79,6 +79,8 @@ int	check_format(va_list args, const char *string, int i)
 		return (ft_putchar((char)va_arg(args, int)));
 	else if (string[i] == 's')
 		return (ft_putstr((char *)va_arg(args, char *)));
+	else if (string[i] == 'p')
+		return (ft_putptr(va_arg(args, long int), "0123456789abcdef", 16));
 	else if (string[i] == '%')
 		return (ft_putchar('%'));
 	else
