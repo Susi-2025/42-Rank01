@@ -6,11 +6,10 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:16:12 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 15:29:49 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:44:40 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdarg.h>
-#include <unistd.h>
+#include "ft_printf.h"
 
 int	ft_printf(const char *string, ...)
 {

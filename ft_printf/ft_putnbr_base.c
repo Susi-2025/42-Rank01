@@ -6,9 +6,10 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 16:23:21 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 14:26:27 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:47:15 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
 int	ft_putnbr_base(long long number, char *base, int i)
 {

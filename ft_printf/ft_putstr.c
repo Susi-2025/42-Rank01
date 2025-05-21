@@ -6,9 +6,10 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:50:25 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/20 15:55:47 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:46:15 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {
@@ -26,5 +27,4 @@ int	ft_putstr(char *str)
 		i++;
 	}
 	return (i);
-}
 }
