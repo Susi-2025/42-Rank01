@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:16:12 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/20 19:35:21 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 15:29:49 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdarg.h>
@@ -22,7 +22,9 @@ int	ft_printf(const char *string, ...)
 	va_start (args, string);
 	while (string[i])
 	{
-		if (string[i] == '%' && !ft_strchr("cspdiuxX%", string[i + 1]))
+		if (string[i] == '%' && ft_strchr('%', string[i + 1]))
+			i++;
+		else if (string[i] == '%' && !ft_strchr("cspdiuxX", string[i + 1]))
 			return (-1);
 		i++;
 	}
@@ -75,33 +77,27 @@ int	check_string(va_list args, const char *string, int i)
 
 int	check_format(va_list args, const char *string, int i)
 {
+	char	*hex;
+	char	*hex_up;
+
+	hex = "0123456789abcdef";
+	hex_up = "0123456789ABCDEF";
 	if (string[i] == 'c')
 		return (ft_putchar((char)va_arg(args, int)));
 	else if (string[i] == 's')
 		return (ft_putstr((char *)va_arg(args, char *)));
 	else if (string[i] == 'p')
-		return (ft_putptr(va_arg(args, long int), "0123456789abcdef", 16));
+		return (ft_putptr(va_arg(args, void *), hex, 16));
+	else if (string[i] == 'd' || string[i] == 'i')
+		return (ft_putnbr_base(va_arg(args, int), hex, 10));
+	else if (string[i] == 'u')
+		return (ft_putnbr_base(va_arg(args, unsigned int), hex, 10));
+	else if (string[i] == 'x')
+		return (ft_putnbr_base(va_arg(args, unsigned int), hex, 16));
+	else if (string[i] == 'X')
+		return (ft_putnbr_base(va_arg(args, unsigned int), hex_up, 16));
 	else if (string[i] == '%')
 		return (ft_putchar('%'));
 	else
 		return (-1);
-}
-
-int	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
-int	ft_putstr(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (ft_putchar(str[i]) == -1)
-			return (-1);
-		i++;
-	}
-	return (i);
 }

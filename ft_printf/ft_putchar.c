@@ -6,11 +6,11 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:49:44 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/20 15:50:15 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 15:30:17 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
-	return (write(1, &c, 1);
+	return (write(1, &c, 1));
 }

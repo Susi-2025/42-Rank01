@@ -6,16 +6,18 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:56:58 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/20 19:35:18 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 11:20:49 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putptr(unsigned long ptr, char *base, int i)
+int	ft_putptr(void *ptr, char *base, int i)
 {
-	int				res;
+	int					res;
+	unsigned long long	add;
 
 	res = 0;
+	add = (unsigned long long)ptr;
 	res += ft_putstr("0x");
-	res += ft_putnbr_base(ptr, base, i);
+	res += ft_putnbr_base(add, base, i);
 	return (res);
 }
