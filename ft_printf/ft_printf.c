@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:16:12 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 16:44:40 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 17:05:12 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -17,11 +17,13 @@ int	ft_printf(const char *string, ...)
 	int		i;
 	int		new_out;
 
+	if (!string)
+		return (-1);
 	i = 0;
 	va_start (args, string);
 	while (string[i])
 	{
-		if (string[i] == '%' && ft_strchr('%', string[i + 1]))
+		if (string[i] == '%' && ft_strchr("%", string[i + 1]))
 			i++;
 		else if (string[i] == '%' && !ft_strchr("cspdiuxX", string[i + 1]))
 			return (-1);
@@ -53,7 +55,6 @@ int	check_string(va_list args, const char *string, int i)
 {
 	int	new_out;
 	int	out;
-	int	res;
 
 	out = 0;
 	new_out = 0;

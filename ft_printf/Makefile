@@ -6,26 +6,16 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/21 15:42:59 by vinguyen          #+#    #+#              #
-#    Updated: 2025/05/21 16:51:00 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/05/21 16:55:33 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_printf.c
+SRCS = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putptr.c ft_putstr.c
 
-OBJS = $(SRCS: .c=.o)
-
-NAME = libftprintf.a
-LIBC = ar
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
-
-SRCS = ft_printf.c
-
-OBJS = $(SRCS: .c=.o)
+OBJS = $(SRCS:.c=.o)
 
 NAME = libftprintf.a
-LIBC = ar
+LIBC = ar rcs
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
@@ -46,4 +36,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean
+.PHONY: all clean fclean re

@@ -107,18 +107,19 @@ int ft_putchar(int c)
     return (write(1, &c, 1));
 }
 
-int ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-    int i;
-    
-    i = 0;
-    while (str[i])
-    {
-        if (ft_putchar(str[i]) == -1)
-            return (-1);
-        i++;
-    }
-    return (i);
+	int	i;
+
+	if (!str)
+		str = "(null)";
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+	return (i);
 }
 
 int	ft_putptr(void *ptr, char *base, int i)
@@ -204,10 +205,18 @@ int main(void)
     // // Test X
     // printf("Compare value: %d %d \n", printf("%X \n", -123456789), ft_printf("%X \n", -123456789));
     // // Combine test
-    printf("Compare value: %d %d \n", printf("%X %s %% %c\n", -123456789, "bee make best", 'a'), \
-    ft_printf("%X %s %% %c\n", -123456789, "bee make best", 'a'));
-    //printf("Value of error: %d \n",ft_printf("%X %s %c %d %%%%%% \n", -123456789, "bee make best", 'a', 1));
-    printf("Compare value: %d %d \n", printf("%X %s %c %d %%%%%% \n", -123456789, "bee make best", 'a', 1), \
-    ft_printf("%X %s %c %d %%%%%% \n", -123456789, "bee make best", 'a', 1));
+    // printf("Compare value: %d %d \n", printf("%X %s %% %c\n", -123456789, "bee make best", 'a'), \
+    // ft_printf("%X %s %% %c\n", -123456789, "bee make best", 'a'));
+    // //printf("Value of error: %d \n",ft_printf("%X %s %c %d %%%%%% \n", -123456789, "bee make best", 'a', 1));
+    // printf("Compare value: %d %d \n", printf("%X %s %c %d %%%%%% \n", -123456789, "bee make best", 'a', 1), \
+    // ft_printf("%X %s %c %d %%%%%% \n", -123456789, "bee make best", 'a', 1));
+    // printf(" %s %s %s %s %s ", " - ", "", "4", "", "2 ");
+    // ft_printf(" %s %s %s %s %s ", " - ", "", "4", "", "2 ");
+    // printf(" NULL %s NULL ", NULL);
+    // ft_printf(" NULL %s NULL ", NULL);
+    printf(" %p %p ", 0, 0);
+    ft_printf(" %p %p ", 0, 0);
+
+
     return 0;
 }

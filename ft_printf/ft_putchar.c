@@ -6,11 +6,15 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:49:44 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 15:30:17 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/21 16:58:03 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
 int	ft_putchar(int c)
 {
-	return (write(1, &c, 1));
+	int	i;
+
+	i = write(1, &c, 1);
+	return (i);
 }
