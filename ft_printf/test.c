@@ -6,6 +6,7 @@ int ft_putchar(int c);
 int ft_putstr(char *str);
 int	ft_putptr(void *ptr, char *base, int i);
 int	ft_putnbr_base(long long number, char *base, int i);
+int	ft_putnbr_base_unsigned(unsigned long long number, char *base, int i);
 int check_format(va_list args, const char *string, int i);
 int check_string(va_list args, const char *string, int i);
 char    *ft_strchr(const char *str, char c);
@@ -101,37 +102,43 @@ int check_format(va_list args, const char *string, int i)
         return (-1);
 }
 
-
 int ft_putchar(int c)
 {
-    return (write(1, &c, 1));
+    if (write(1, &c, 1) == -1)
+        return (-1);
+    return (1);
 }
 
-int	ft_putstr(char *str)
+int ft_putstr(char *str)
 {
-	int	i;
+    int i;
 
-	if (!str)
-		str = "(null)";
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	return (i);
+    if (!str)
+        str = "(null)";
+    i = 0;
+    while (str[i])
+    {
+        if (ft_putchar(str[i]) == -1)
+            return (-1);
+        i++;
+    }
+    return (i);
 }
 
-int	ft_putptr(void *ptr, char *base, int i)
-{
-	int					res;
-	unsigned long long	add;
 
-	res = 0;
-	add = (unsigned long long)ptr;
-	res += ft_putstr("0x");
-	res += ft_putnbr_base(add, base, i);
-	return (res);
+
+int ft_putptr(void *ptr, char *base, int i)
+{
+    int                 res;
+    unsigned long long  add;
+
+    res = 0;
+    add = (unsigned long long)ptr;
+    if (add == 0)
+        return (ft_putstr("(nil)"));
+    res += ft_putstr("0x");
+    res += ft_putnbr_base_unsigned(add, base, i);
+  	return (i);
 }
 
 int	ft_putnbr_base(long long number, char *base, int i)
@@ -150,16 +157,26 @@ int	ft_putnbr_base(long long number, char *base, int i)
 	return (res);
 }
 
+int ft_putnbr_base_unsigned(unsigned long long number, char *base, int i)
+{
+    int res;
+
+    res = 0;
+    if (number / i > 0)
+        res += ft_putnbr_base_unsigned (number / i, base, i);
+    res += ft_putchar(base[number % i]);
+    return (res);
+}
 
 
 
 int main(void)
 {   
-    char c = 'd';
-    char d = '9';
-    char *s = "Well Hell";
-    int no1 = -432;
-    int no2 = 5678;
+//    char c = 'd';
+//    char d = '9';
+//    char *s = "Well Hell";
+//    int no1 = -432;
+//    int no2 = 5678;
 //  // Test char- compare ok
     // ft_printf("My func: ABC %c DED %c \n", c, d);
     // printf("Std func: ABC %c DED %c \n", c, d);
@@ -216,7 +233,5 @@ int main(void)
     // ft_printf(" NULL %s NULL ", NULL);
     printf(" %p %p ", 0, 0);
     ft_printf(" %p %p ", 0, 0);
-
-
     return 0;
 }

@@ -1,7 +1,5 @@
 get_next_line with buffer_sizei- function allows: read, malloc, free- buffer_size will be set on header file
 Nanoutils.c file only allow 5 helper functionsExample about reading:
-
-
 - int res = read (fd, buffer, buffer_size) will return int value. If res == -1 -> error.
 - buffer will store buffer_size bytes from reading files 
 and the system will point to buffer_size position in content of file.

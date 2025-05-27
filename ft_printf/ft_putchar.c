@@ -6,15 +6,14 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 15:49:44 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/21 16:58:03 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/26 12:35:08 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
 int	ft_putchar(int c)
 {
-	int	i;
-
-	i = write(1, &c, 1);
-	return (i);
+	if (write(1, &c, 1) == -1)
+		return (-1);
+	return (1);
 }

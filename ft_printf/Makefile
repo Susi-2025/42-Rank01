@@ -6,11 +6,11 @@
 #    By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/21 15:42:59 by vinguyen          #+#    #+#              #
-#    Updated: 2025/05/21 16:55:33 by vinguyen         ###   ########.fr        #
+#    Updated: 2025/05/26 12:28:41 by vinguyen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putptr.c ft_putstr.c
+SRCS = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putptr.c ft_putstr.c ft_putnbr_base_unsigned.c
 
 OBJS = $(SRCS:.c=.o)
 

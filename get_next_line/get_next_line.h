@@ -6,7 +6,7 @@
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 17:23:09 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/20 12:22:37 by vinguyen         ###   ########.fr       */
+/*   Updated: 2025/05/27 11:26:42 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 int		ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
+char	*ft_join(char *out, char *s1, char *s2);
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 char	*ft_readfile(int fd, char *temp);

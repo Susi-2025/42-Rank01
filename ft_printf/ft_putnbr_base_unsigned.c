@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_base_unsigned.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vinguyen <vinguyen@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/20 15:56:58 by vinguyen          #+#    #+#             */
-/*   Updated: 2025/05/26 12:46:02 by vinguyen         ###   ########.fr       */
+/*   Created: 2025/05/26 12:21:19 by vinguyen          #+#    #+#             */
+/*   Updated: 2025/05/26 12:29:09 by vinguyen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	ft_putptr(void *ptr, char *base, int i)
+int	ft_putnbr_base_unsigned(unsigned long long number, char *base, int i)
 {
-	int					res;
-	unsigned long long	add;
+	int	res;
 
 	res = 0;
-	add = (unsigned long long)ptr;
-	if (add == 0)
-		return (ft_putstr("(nil)"));
-	res += ft_putstr("0x");
-	res += ft_putnbr_base_unsigned(add, base, i);
+	if (number / i > 0)
+		res += ft_putnbr_base_unsigned (number / i, base, i);
+	res += ft_putchar(base[number % i]);
 	return (res);
 }
